@@ -21,6 +21,7 @@ func insert(array []int, num int, index int) []int {
 	//循环外负责移动
 	for i := len(array) - 1; i > index; i-- {
 		//循环内负责操作
+		//以此向后移一位
 		array[i] = array[i-1]
 	}
 
@@ -30,6 +31,7 @@ func insert(array []int, num int, index int) []int {
 
 // 删除元素
 func delete(array []int, index int) []int {
+	//由当前index 逐个向前覆盖
 	for i := index; i < len(array)-1; i++ {
 		array[i] = array[i+1]
 	}

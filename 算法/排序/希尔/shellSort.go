@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//隔位 gap 有序 缩小gap到全部有序
+
 // insertionSort 函数实现了插入排序算法，对指定间隔的元素进行排序
 func insertionSort(arr []int, start, gap int) {
 	n := len(arr)

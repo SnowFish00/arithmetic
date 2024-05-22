@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+//选择排序定住 假定前面最小 比较寻找最小再替换 直到有序
+
 func selectionSort(arr []int) {
 	len := len(arr)
 

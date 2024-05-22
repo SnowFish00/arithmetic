@@ -71,7 +71,7 @@ func create_nodes(n int) *Ring {
 		p = p.next
 	}
 
-	//首位闭环
+	//首尾闭环
 	r.prev = p
 	p.next = r
 
@@ -79,6 +79,7 @@ func create_nodes(n int) *Ring {
 }
 
 // 合并两个结点所代表的循环链表
+// 将r看作尾 将s看作头
 func (r *Ring) link(s *Ring) *Ring {
 	//r的下一结点 以及 看作 r所代表的链表的"头"
 	n := r.Next()

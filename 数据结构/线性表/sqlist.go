@@ -75,6 +75,7 @@ func (l *SqList) DestroyList() {
 /*元素操作*/
 
 func (l *SqList) ListInsert(index int, elem interface{}) bool {
+	//负数 满 过容
 	if index < 0 || index > l.Capacity || l.ListFul() {
 		return false
 	}
@@ -85,12 +86,14 @@ func (l *SqList) ListInsert(index int, elem interface{}) bool {
 	}
 
 	l.Data[index] = elem
+	//长度加一
 	l.Len++
 
 	return true
 }
 
 func (l *SqList) ListDelete(index int) bool {
+	//负数 满 过容
 	if index < 0 || index > l.Capacity || l.ListEmpty() {
 		return false
 	}
@@ -108,6 +111,7 @@ func (l *SqList) ListDelete(index int) bool {
 }
 
 func (l *SqList) SetElem(index int, elem interface{}) bool {
+	//负数 过长
 	if index < 0 || index >= l.Len {
 		return false
 	}
@@ -117,6 +121,7 @@ func (l *SqList) SetElem(index int, elem interface{}) bool {
 }
 
 func (l *SqList) GetElem(index int) (interface{}, bool) {
+	//负数 过长
 	if index < 0 || index >= l.Len {
 		return nil, false
 	}
@@ -157,6 +162,7 @@ func (l *SqList) TraverseList() {
 }
 
 func (l *SqList) Pop() interface{} {
+	//空则不出
 	if l.ListEmpty() {
 		return nil
 	}
@@ -183,8 +189,10 @@ func (l *SqList) ExtendCapacity() {
 	l.Capacity = len(l.Data)
 }
 
+// 反转
 func (l *SqList) Reserve() {
 	for i := 0; i < l.Len/2; i++ {
+		//关于中间值对称的两个值相互交换位置
 		tmp := l.Data[l.Len-i-1]
 		l.Data[l.Len-i-1] = l.Data[i]
 		l.Data[i] = tmp

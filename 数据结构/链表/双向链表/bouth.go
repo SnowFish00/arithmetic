@@ -73,6 +73,7 @@ func (l *List) get_all() {
 
 // 根据index获取node
 func (l *List) get_node_index(index int) *Elem {
+	//头不为空而且 下标不能左右越界
 	if l.root.next == nil || index < 0 || index > l.len-1 {
 		return nil
 	}
@@ -106,6 +107,7 @@ func (l *List) get_node_target(target interface{}) *Elem {
 
 // 后插入
 func (l *List) insert_back(val interface{}, node *Elem) *Elem {
+	//表头不为空
 	if l.root.next == nil {
 		return nil
 	}
@@ -132,6 +134,7 @@ func (l *List) insert_back(val interface{}, node *Elem) *Elem {
 
 // 前插入
 func (l *List) insert_front(val interface{}, node *Elem) *Elem {
+	//头节点不为空
 	if l.root.next == nil {
 		return nil
 	}
@@ -145,6 +148,10 @@ func (l *List) insert_front(val interface{}, node *Elem) *Elem {
 	node.prev = new_node
 
 	l.len++
+
+	//同步list
+	//* = * 是赋值引用放心删其他节点不会受到影响  使用&l才是地址
+	node.list = l
 
 	return new_node
 }

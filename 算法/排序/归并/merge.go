@@ -31,6 +31,8 @@ func merge(left []int, right []int) []int {
 			right = right[1:]
 		}
 	}
+
+	//下面这两个for为了让奇数长度下左右数组不等长的超出部分衔接的
 	// 将剩余的元素添加到结果数组中
 	for len(left) != 0 {
 		result = append(result, left[0])

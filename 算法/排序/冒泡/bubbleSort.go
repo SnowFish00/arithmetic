@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// 最大值向后移动 逐渐由小到大有序
 func bubble(list []int) {
 	len := len(list)
 	//外层控制循环次数

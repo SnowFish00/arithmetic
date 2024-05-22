@@ -46,8 +46,10 @@ func (node *BinaryTreeNode) BreadthFirstSearch() []int {
 	if node == nil {
 		return nil
 	}
+	//结果切片
 	var result []int
 	per := node
+	//节点切片
 	node_list := []*BinaryTreeNode{per}
 
 	for len(node_list) > 0 {
