@@ -9,6 +9,7 @@ type TreeNode struct {
 }
 
 func DFS(root *TreeNode) {
+	//没使用队列 而是栈递归 所以未逐层遍历 而是先左根到底 符合 深度优先
 	//这个是根左右的前序深度遍历 还可以写其他的顺序
 	if root == nil {
 		return
@@ -16,9 +17,8 @@ func DFS(root *TreeNode) {
 	// 前序遍历位置
 	fmt.Println(root.Val)
 	DFS(root.Left)
-	// 中序遍历位置
 	DFS(root.Right)
-	// 后序遍历位置
+
 }
 
 func main() {
