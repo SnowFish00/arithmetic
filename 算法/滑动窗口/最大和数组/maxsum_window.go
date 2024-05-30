@@ -23,7 +23,7 @@ func maxSubArray(nums []int) int {
 
 	// 从第二个元素开始遍历数组
 	for i := 1; i < len(nums); i++ {
-		// 如果当前子数组和为负数，则丢弃之前的子数组，从当前元素重新开始
+		// 如果当前子数组和为负数，则丢弃之前的子数组，从当前元素重新开始(剪枝)
 		if currentSum < 0 {
 			currentSum = nums[i]
 		} else {
